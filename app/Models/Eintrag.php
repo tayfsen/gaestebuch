@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Eintrag extends Model
 {
-public $table = "Eintrag";
+public $table = "eintrag";
 public $primaryKey = "idEintrag";
 protected $fillable = ["Vorname", "Nachname", "E-Mail", "Text"];
 
