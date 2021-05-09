@@ -10,6 +10,6 @@ class Eintrag extends Model
 {
 public $table = "eintrag";
 public $primaryKey = "idEintrag";
-protected $fillable = ["Vorname", "Nachname", "E-Mail", "Text"];
+protected $fillable = ["Vorname", "Nachname", "EMail", "Text"];
 
 }

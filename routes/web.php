@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GaestebuchController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/cookis/gaestebuch', function(){
-    return view('gaestebuch');
-});
+Route::get('/', [GaestebuchController::class, 'index']);
+
+Route::resource('gaestebuch', GaestebuchController::class);

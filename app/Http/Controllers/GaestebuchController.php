@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Eintrag;
+
+use http\Env\Response;
 use Illuminate\Http\Request;
 
 class GaestebuchController extends Controller
 {
     public function index()
     {
-        return View('gaestebuch.index');
+        $gaestebuch = Eintrag::all();
+        return view('home')->with(compact('gaestebuch'));
     }
 
     public function create()
@@ -16,9 +20,17 @@ class GaestebuchController extends Controller
         return View('gaestebuch.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        return View('gaestebuch.index');
+        $data = $request->validate([
+            'Vorname' => 'required',
+            'Nachname' => 'required',
+            'E-Mail' => 'required',
+            'Text' => 'required'
+        ]);
+        $gaestebuch = Eintrag::create($data);
+
+        return Response::json($gaestebuch);
     }
 
     public function edit()
